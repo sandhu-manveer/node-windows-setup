@@ -173,6 +173,7 @@ goto bluemixEnd
 
 REM setup eslint (assuming eslint is installed)
 echo "Initializing eslint"
+eslint --init
 
 (
 @echo dist/*
