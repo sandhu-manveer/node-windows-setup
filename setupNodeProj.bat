@@ -1,8 +1,20 @@
 @echo off
 REM setup git and login
+ECHO initialize git? (y/n)
+ECHO.
+set git=
+set /p git=
+if '%git%'=='y' goto :gitStart
+if '%git%'=='n' goto :gitEnd
+goto gitEnd
+
+:gitStart
 git init
 git config user.name "sandhu-manveer"
 git config user.email "sandhu94manveer@gmail.com"
+goto gitEnd
+
+:gitEnd
 
 (
 @echo # Logs
@@ -172,8 +184,17 @@ goto bluemixEnd
 :bluemixEnd
 
 REM setup eslint (assuming eslint is installed)
+ECHO initialize eslint? (y/n)
+ECHO.
+set eslint=
+set /p eslint=
+if '%eslint%'=='y' goto :eslintStart
+if '%eslint%'=='n' goto :eslintEnd
+goto eslintEnd
+
+:eslintStart
 echo "Initializing eslint"
-eslint --init
+call eslint --init
 
 (
 @echo dist/*
@@ -181,8 +202,24 @@ eslint --init
 @echo .vscode
 ) > .eslintignore
 
+:eslintEnd
+
 REM setup readme
 (
 @echo # Readme
-) > .eslintignore
+) > Readme.md
 
+REM run npm init
+ECHO initialize node? (y/n)
+ECHO.
+set node=
+set /p node=
+if '%node%'=='y' goto :nodeStart
+if '%node%'=='n' goto :nodeEnd
+goto nodeEnd
+
+:nodeStart
+call npm init
+goto nodeEnd
+
+:nodeEnd
