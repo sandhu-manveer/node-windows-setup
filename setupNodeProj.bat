@@ -160,9 +160,6 @@ goto bluemixEnd
 @echo # Yarn Integrity file
 @echo .yarn-integrity
 @echo: 
-@echo # dotenv environment variables file
-@echo .env
-@echo: 
 @echo # next.js build output
 @echo .next
 @echo: 
