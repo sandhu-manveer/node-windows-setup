@@ -204,7 +204,7 @@ call eslint --init
 REM setup readme
 (
 @echo # Readme
-) > Readme.md
+) > README.md
 
 REM run npm init
 ECHO initialize node? (y/n)
